@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://deee233cs5o7"]
+
+[ext_resource type="PackedScene" uid="uid://cfd2h4v4w3684" path="res://player.tscn" id="1_fc0e3"]
+[ext_resource type="PackedScene" uid="uid://c4a50ovfvv5mn" path="res://security_door.tscn" id="2_7jktm"]
+[ext_resource type="PackedScene" uid="uid://bx34l3cknj1dx" path="res://toy_collectible.tscn" id="3_ryrav"]
+[ext_resource type="PackedScene" uid="uid://bc8wysnw4yl5p" path="res://toy_slot.tscn" id="4_eow3j"]
+
+[node name="Game" type="Node3D" unique_id=818536228]
+
+[node name="Player" parent="." unique_id=2141704040 instance=ExtResource("1_fc0e3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.3968382, 0, 1.1686146)
+
+[node name="SecurityDoor" parent="." unique_id=1280498783 instance=ExtResource("2_7jktm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.593467, -0.13681221, 1.0237552)
+
+[node name="ToyCollectible" parent="." unique_id=1290219720 instance=ExtResource("3_ryrav")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6352257, 1.1920929e-07, 1.0189748)
+
+[node name="ToySlot" parent="." unique_id=1739689791 instance=ExtResource("4_eow3j")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.13816321, 0.9589883, 0.14226604)
+
+[connection signal="requirements_met" from="ToySlot" to="SecurityDoor" method="open"]

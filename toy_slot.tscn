@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://bc8wysnw4yl5p"]
+
+[ext_resource type="Script" uid="uid://ceuetl0m1yn58" path="res://scripts/interactables/receptacle.gd" id="1_qtovk"]
+
+[node name="ToySlot" type="Area3D" unique_id=1739689791]
+script = ExtResource("1_qtovk")

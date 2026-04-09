@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://bx34l3cknj1dx"]
+
+[ext_resource type="Script" uid="uid://86x6lcjjsbud" path="res://scripts/interactables/collectible.gd" id="1_1b7aj"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_1b7aj"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_1b7aj"]
+
+[node name="ToyCollectible" type="Area3D" unique_id=1290219720]
+script = ExtResource("1_1b7aj")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=200601732]
+shape = SubResource("SphereShape3D_1b7aj")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1829094248]
+mesh = SubResource("BoxMesh_1b7aj")

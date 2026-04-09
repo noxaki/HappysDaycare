@@ -1,0 +1,46 @@
+[gd_scene format=3 uid="uid://cfd2h4v4w3684"]
+
+[ext_resource type="Script" uid="uid://mqwi7neabl45" path="res://scripts/player/player_controller.gd" id="1_dw050"]
+[ext_resource type="Script" uid="uid://b16vc0gstriid" path="res://scripts/player/interaction_component.gd" id="2_b26j0"]
+[ext_resource type="Script" uid="uid://pn8anghs77h7" path="res://scripts/player/fsm/state_machine.gd" id="3_n7ghd"]
+[ext_resource type="Script" uid="uid://dhwew4iasq7ka" path="res://scripts/player/fsm/player_idle_state.gd" id="4_nvl01"]
+[ext_resource type="Script" uid="uid://ghgod5wrrdul" path="res://scripts/player/fsm/player_walk_state.gd" id="5_ivps1"]
+[ext_resource type="Script" uid="uid://ck51uib3yrjom" path="res://scripts/player/fsm/player_run_state.gd" id="6_urp6f"]
+[ext_resource type="Script" uid="uid://1enhaxphf6xv" path="res://scripts/player/fsm/player_jump_state.gd" id="7_bwjto"]
+[ext_resource type="Script" uid="uid://dxq7p2os74mgd" path="res://scripts/player/inventory_component.gd" id="8_606se"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_fc0e3"]
+
+[node name="Player" type="CharacterBody3D" unique_id=2141704040]
+script = ExtResource("1_dw050")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=345417503]
+shape = SubResource("CapsuleShape3D_fc0e3")
+
+[node name="Head" type="Node3D" parent="." unique_id=1473918772]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+
+[node name="Camera3D" type="Camera3D" parent="Head" unique_id=701462422]
+
+[node name="InteractionComponent" type="RayCast3D" parent="Head/Camera3D" unique_id=1321917935]
+target_position = Vector3(0, -1, -2)
+script = ExtResource("2_b26j0")
+
+[node name="StateMachine" type="Node" parent="." unique_id=81522332 node_paths=PackedStringArray("initial_state")]
+script = ExtResource("3_n7ghd")
+initial_state = NodePath("Idle")
+
+[node name="Idle" type="Node" parent="StateMachine" unique_id=1942041644]
+script = ExtResource("4_nvl01")
+
+[node name="Walk" type="Node" parent="StateMachine" unique_id=134216576]
+script = ExtResource("5_ivps1")
+
+[node name="Run" type="Node" parent="StateMachine" unique_id=570736221]
+script = ExtResource("6_urp6f")
+
+[node name="Jump" type="Node" parent="StateMachine" unique_id=120068838]
+script = ExtResource("7_bwjto")
+
+[node name="InventoryComponent" type="Node" parent="." unique_id=1080209493]
+script = ExtResource("8_606se")

@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://c4a50ovfvv5mn"]
+
+[ext_resource type="Script" uid="uid://bk8elxm44bvdp" path="res://scripts/interactables/door.gd" id="1_dim8s"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_dim8s"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_dim8s"]
+
+[node name="SecurityDoor" type="Node3D" unique_id=1280498783]
+script = ExtResource("1_dim8s")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1036025077]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1983832517]
+shape = SubResource("BoxShape3D_dim8s")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=394302149]
+mesh = SubResource("BoxMesh_dim8s")
